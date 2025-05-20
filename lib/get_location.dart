@@ -19,6 +19,7 @@ class _GetLocationState extends State<GetLocationWidget> {
 
   LocationData? _location;
   String? _city;
+  String? _content;
   String? _state;
   String? _error;
 
@@ -53,6 +54,7 @@ class _GetLocationState extends State<GetLocationWidget> {
           _location = locationResult;
           _city = city;
           _state = state;
+          _content = data['display_name'];
           _loading = false;
         });
       } else {
@@ -83,7 +85,7 @@ class _GetLocationState extends State<GetLocationWidget> {
         ),
         Text("Tỉnh/thành: ${_state ?? 'Không xác định'}"),
         Text("Thành phố/huyện: ${_city ?? 'Không xác định'}"),
-
+        Text("Display Name: ${_content ?? 'Không xác định'}"),
         Row(
           children: <Widget>[
             ElevatedButton(
